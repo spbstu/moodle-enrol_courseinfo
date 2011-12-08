@@ -4,7 +4,7 @@ require_once($CFG->dirroot.'/course/lib.php');
 
 defined('MOODLE_INTERNAL') || die();
 
-class enrol_info_plugin extends enrol_plugin {
+class enrol_courseinfo_plugin extends enrol_plugin {
     public function enrol_page_hook(stdClass $instance) {
 	 global $DB, $OUTPUT;
 
@@ -26,11 +26,11 @@ class enrol_info_plugin extends enrol_plugin {
             return NULL;
         }
 
-        if ($DB->record_exists('enrol', array('courseid'=>$courseid, 'enrol'=>'info'))) {
+        if ($DB->record_exists('enrol', array('courseid'=>$courseid, 'enrol'=>'courseinfo'))) {
             return NULL;
         }
 
-        return new moodle_url('/enrol/info/addinstance.php', array('sesskey'=>sesskey(), 'id'=>$courseid));
+        return new moodle_url('/enrol/courseinfo/addinstance.php', array('sesskey'=>sesskey(), 'id'=>$courseid));
     }
 
     public function enrol_user(stdClass $instance, $userid,
