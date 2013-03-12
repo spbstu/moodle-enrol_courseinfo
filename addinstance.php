@@ -11,7 +11,7 @@ require_login($course);
 require_capability('moodle/course:enrolconfig', $context);
 require_sesskey();
 
-$enrol = enrol_get_plugin('courseinfo');
+$enrol = enrol_get_plugin('condition');
 
 if ($enrol->get_newinstance_link($course->id)) {
     $enrol->add_default_instance($course);
